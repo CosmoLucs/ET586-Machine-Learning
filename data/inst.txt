@@ -1,4 +1,0 @@
-Com base no banco de dados escolhido pela equipe, analisamos as **informações** relevantes para o nosso projeto da seguinte forma:
-- **Limpeza e preparação dos dados.**
-- **Análise exploratória dos dados (EDA).**
-- **Divisão dos dados em treinamento e teste.
