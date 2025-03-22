@@ -18,7 +18,12 @@ print(df.shape)
 print("\nValores ausentes por coluna:")
 print(df.isnull().sum())
 
+# Mostra a distribuição de cada variável
 df[['Size', 'Weight', 'Sweetness', 'Crunchiness', 'Juiciness', 'Ripeness', 'Acidity']].hist(bins=20, figsize=(10, 8))
+plt.show()
+
+# Cria a distribuição de cada variável em função das outras (pairplot)
+sns.pairplot(df)
 plt.show()
 
 # Cria um boxplot para visualizar a distribuição das variáveis numéricas
@@ -26,12 +31,14 @@ sns.boxplot(data=df[['Size', 'Weight', 'Sweetness', 'Crunchiness', 'Juiciness', 
 plt.show()
 
 # Calcula a matriz de correlação entre as variáveis e cria um heatmap para visualizá-la
+df["Quality"] = df["Quality"].map({"good": 1, "bad": 0})
 correlation_matrix = df.corr()
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
 plt.title('Matriz de Correlação')
 plt.show()
 
 # Cria um boxplot para visualizar a distribuição de 'Sweetness' em relação à 'Quality'
+df["Quality"] = df["Quality"].map({1: "good", 0: "bad"})
 sns.boxplot(x='Quality', y='Sweetness', data=df)
 plt.title('Distribuição de Sweetness por Quality')
 plt.show()
