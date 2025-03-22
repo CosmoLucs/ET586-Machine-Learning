@@ -14,6 +14,8 @@ df = df.iloc[:-1] # Remover a última linha
 # Comando para verificar o formato do dataset, mostra 4000, 9 com linhas e colunas respectivamente
 print(df.shape)
 
+df["Quality"] = df["Quality"].map({"good": 1, "bad": 0})
+
 # Verificação de itens ausentes por coluna
 print("\nValores ausentes por coluna:")
 print(df.isnull().sum())
